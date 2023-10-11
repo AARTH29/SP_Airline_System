@@ -113,7 +113,9 @@ void flight::delete_flight()
     fio.read((char*)&f,sizeof(f));
     filef.open("temp.txt",ios::out);
     int pl_no;
-    char option1,option,found='n';
+    char option1;
+    char option;
+    char found='n';
     cout<<"WHETHER YOU WANNA DELETE ANYMORE DETAIL?[if yes enter y]"<<endl;
     cin>>option;
     while(option=='y')
