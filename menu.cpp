@@ -11,7 +11,7 @@ void Menu::admin_menu()
         cout<<"2] DELETE FLIGHT DETAILS"<<endl<<endl;
         cout<<"3] DISPLAY FLIGHT DETAILS "<<endl<<endl;
         cout<<"4] DISPLAY DETAILS OF PASSANGER IN SCHEDULED FLIGHT"<<endl<<endl;
-        cout<<"5] DISPLAY A PASSANGER INFO"<<endl<<endl;;
+        cout<<"5] DISPLAY A PASSANGER INFO"<<endl<<endl;
         cout<<"6] MODIFY FLIGHT DETAILS"<<endl<<endl;
         cout<<"7] CREATE BRAND NEW FLIGHT RECORD"<<endl<<endl;
         cout<<"enter your choice"<<endl<<endl;
