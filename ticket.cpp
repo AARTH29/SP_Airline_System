@@ -4,16 +4,20 @@
 #include <cstdlib>
 #include <random>
 using namespace std;
-void ticket::set_ticket()
-{
-    cout<<"ENTER YOUR BOARDING PLACE"<<endl;
+void ticket::set_ticket() {
+    cout << "ENTER YOUR BOARDING PLACE" << endl;
     cin.ignore();
-    cin.getline(board_place,sizeof(board_place));
-    cout<<"ENTER THE DESTINATION PLACE"<<endl;
-    cin>>destin_place;
-    res_no=rand()%50;
-    cout<<"WAIT TILL YOUR TICKET IS BOOKED"<<endl;
-    cout<<"YOUR RESERVATAION NUMBER IS"<<res_no<<endl;
+    cin.getline(board_place, sizeof(board_place));
+    cout << "ENTER THE DESTINATION PLACE" << endl;
+    cin >> destin_place;
+
+    std::random_device rd;
+    std::mt19937 generator(rd());
+    std::uniform_int_distribution<int> distribution(0, 49);
+    res_no = distribution(generator);
+
+    cout << "WAIT TILL YOUR TICKET IS BOOKED" << endl;
+    cout << "YOUR RESERVATION NUMBER IS " << res_no << endl;
 }
 void ticket::display_ticket()
 {
