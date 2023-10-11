@@ -6,8 +6,17 @@ class passanger
 {
 protected:
     flight f;
-    char pname[50],surname[50],nationality[50],email_id[50],airline_type[50],board_time[50],type_seat[50];
-    int passport_no,tele_no,age,plane_no;
+    string pname;
+    string surname;
+    string nationality;
+    string email_id;
+    string airline_type;
+    string board_time;
+    string type_seat;
+    int passport_no;
+    int tele_no;
+    int age;
+    int plane_no;
 public:
     void set_data();
     void get_data();
