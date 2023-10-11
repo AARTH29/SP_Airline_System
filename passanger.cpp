@@ -71,10 +71,8 @@ void passanger::modify()
     char found='n';
     cout<<"ENTER YOUR PASSPORT NUMBER"<<endl;
     cin>>no;
-    while(!peop.eof())
+    while(!peop.eof() && p.passport_no==no)
     {
-        if(p.passport_no==no)
-        {
             int n;
             found = 'f';
             cout<<"WHICH DATA OF YOURS DO YOU WANNA ALTER"<<endl;
@@ -144,7 +142,6 @@ void passanger::modify()
                         };break;
                 default:cout<<"SORRY,INVALID OPTION"<<endl;
             }
-        }
        peop.read((char*)&p,sizeof(p));
     }
     if(found =='n')
