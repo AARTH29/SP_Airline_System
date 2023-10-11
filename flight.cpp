@@ -232,27 +232,21 @@ void flight::mod_flight()
                             cin.ignore();
                             cin.getline(f.airline_name,sizeof(f.airline_name));
                             if(strcmp(f.airline_name,".")!=0)
-                            {
                                 file2.write((char*)&f,sizeof(f));
-                            }
                             };break;
                     case 3:{
                             cout<<"ENTER THE START OF PLACE [enter '.' to retain the old name]"<<endl;
                             cin.ignore();
                             cin.getline(f.from,sizeof(f.from));
                             if(strcmp(f.from,".")!=0)
-                            {
                                 file2.write((char*)&f,sizeof(f));
-                            }
                             };break;
                     case 4:{
                             cout<<"ENTER THE DROP OF PLACE[enter '.' to retain the old name]"<<endl;
                             cin.ignore();
                             cin.getline(f.to,sizeof(f.to));
                             if(strcmp(f.to,".")!=0)
-                                {
                                     file2.write((char*)&f,sizeof(f));
-                                }
                             };break;
                     case 5:{cout<<"THE NUMBER OF DEPART TIME TO BE GIVEN"<<f.number<<endl;
                             cout<<"ENTER THE NEW DEPART TIME[enter '.' to retain the old time]"<<endl;
@@ -262,9 +256,7 @@ void flight::mod_flight()
                                 if(strcmp(f.depart_time[i],".")==0)
                                      cout<<"****old one retained****"<<endl;
                                 else
-                                {
                                     file2.write((char*)&f,sizeof(f));
-                                }
                             }
                             };break;
                     case 6:{
@@ -273,9 +265,7 @@ void flight::mod_flight()
                             if(f.e_seat==-1)
                                 cout<<"****old one retained****"<<endl;
                             else
-                            {
                                 file2.write((char*)&f,sizeof(f));
-                            }
                             };break;
                     case 7:{
                             cout<<"ENTER THE NEW NUMBER OF BUSINESS SEATS AVAILABLE[enter -1 o retain old one]"<<endl;
@@ -283,9 +273,7 @@ void flight::mod_flight()
                             if(f.b_seat==-1)
                                 cout<<"****old one retained****"<<endl;
                             else
-                            {
                                 file2.write((char*)&f,sizeof(f));
-                            }
                             } ;break;
                     default:cout<<"NOT VALID OPTION"<<endl;break;
                 }
