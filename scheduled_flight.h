@@ -4,7 +4,7 @@
 class scheduled_flight
 {
     passanger p2;
-    char fltype[50],dep[50];
+    stirng fltype,dep;
     int flno;
 public:
     void check_pass();
