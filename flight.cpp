@@ -318,7 +318,7 @@ void flight::full_detail()
    }
    obj.close();
 }
-void flight::choose_seat(int flno,char type[10])
+void flight::choose_seat(int flno,string type)
 {
     flight f;
     fstream pla("plane.txt");
