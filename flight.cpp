@@ -205,10 +205,8 @@ void flight::mod_flight()
     cout<<"ENTER THE PLANE TYPE AS WELL"<<endl;
     cin.ignore();
     cin.getline(type,sizeof(type));
-    while(!file2.eof())
+    while(!file2.eof() && f.fl_no==pl_no && strcmp(f.airline_name,type)==0)
     {
-        if(f.fl_no==pl_no && strcmp(f.airline_name,type)==0)
-        {
             found = 'f';
             char choice = 'y';
             int n;
