@@ -4,8 +4,6 @@
 #include <cstdlib>
 #include <random>
 using namespace std;
-std::default_random_engine generator;
-std::uniform_int_distribution distribution(0, 49);
 void ticket::set_ticket()
 {
     cout<<"ENTER YOUR BOARDING PLACE"<<endl;
@@ -13,7 +11,7 @@ void ticket::set_ticket()
     cin.getline(board_place,sizeof(board_place));
     cout<<"ENTER THE DESTINATION PLACE"<<endl;
     cin>>destin_place;
-    int res_no = distribution(generator);
+    res_no=rand()%50;
     cout<<"WAIT TILL YOUR TICKET IS BOOKED"<<endl;
     cout<<"YOUR RESERVATAION NUMBER IS"<<res_no<<endl;
 }
