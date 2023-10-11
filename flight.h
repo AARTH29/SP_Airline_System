@@ -4,10 +4,16 @@
 class flight
 {
     private:
-        int fl_no,e_seat,b_seat,booked_seats,number;
-        char arr_time[10][10],depart_time[10][10];
-        char from[50],to[50];
-        char airline_name[50];
+        int fl_no;
+        int e_seat;
+        int b_seat;
+        int booked_seats;
+        int number;
+        vector<vector<string>>arr_time
+        vector<vector<string>>depart_time;
+        string from;
+        string to;
+        string airline_name;
     public:
         void set_flight_info();
         void get_flight_info();
