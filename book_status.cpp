@@ -5,11 +5,11 @@ using namespace std;
 void book_status::display_status()
 {
     int num;
-    char name[10];
+    string name;
     cout<<"///*************STATUS OF YOUR BOOKING***************///"<<endl;
     cout<<"ENTER YOUR NAME"<<endl;
     cin.ignore();
-    cin.getline(name,sizeof(name));
+    getline(cin,name);
     cout<<"ENTER YOUR PASSPORT NUMBER"<<endl;
     cin>>num;
     cout<<"......DISPLAYING TICKET......"<<endl;
