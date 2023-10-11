@@ -198,7 +198,8 @@ void flight::mod_flight()
     file2.open("plane.txt",ios::in|ios::out);
     file2.read((char*)&f,sizeof(f));
     int pl_no;
-    char found = 'n',type[10];
+    char found = 'n';
+    string type;
     cout<<"ENTER THE PLANE NUMBER WHOSE RECORD HAS TO BE ALTERED"<<endl;
     cin>>pl_no;
     cout<<"ENTER THE PLANE TYPE AS WELL"<<endl;
