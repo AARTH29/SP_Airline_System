@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <random>
+#include <sodium.h>
 using namespace std;
 void ticket::set_ticket() {
     cout << "ENTER YOUR BOARDING PLACE" << endl;
@@ -11,10 +12,16 @@ void ticket::set_ticket() {
     cout << "ENTER THE DESTINATION PLACE" << endl;
     cin >> destin_place;
 
-    std::random_device rd;
-    std::mt19937 generator(rd());
-    std::uniform_int_distribution distribution(0, 49);
-    res_no = distribution(generator);
+    //std::random_device rd;
+    //std::mt19937 generator(rd());
+    //std::uniform_int_distribution distribution(0, 49);
+    //res_no = distribution(generator);
+
+     if (sodium_init() < 0) {
+        // panic! the library couldn't be initialized, it is not safe to use
+        return;
+    }
+    res_no = randombytes_uniform(50);
 
     cout << "WAIT TILL YOUR TICKET IS BOOKED" << endl;
     cout << "YOUR RESERVATION NUMBER IS " << res_no << endl;
