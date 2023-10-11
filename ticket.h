@@ -11,7 +11,7 @@ class ticket
     passanger p1;
 public:
     void set_ticket();
-    void get_ticket(int num,char name[10]);
+    void get_ticket(int num,string name);
     void book_ticket();
     void display_ticket();
     void del_res(int c);
