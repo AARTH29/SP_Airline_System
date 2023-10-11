@@ -13,7 +13,7 @@ void ticket::set_ticket() {
 
     std::random_device rd;
     std::mt19937 generator(rd());
-    std::uniform_int_distribution<int> distribution(0, 49);
+    std::uniform_int_distribution distribution(0, 49);
     res_no = distribution(generator);
 
     cout << "WAIT TILL YOUR TICKET IS BOOKED" << endl;
