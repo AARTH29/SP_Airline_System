@@ -104,60 +104,116 @@ void flight::add_flight()
     }
     file1.close();
 }
-void flight::delete_flight()
-{
-    flight f;
-    ifstream fio;
-    ofstream filef;
-    fio.open("plane.txt",ios::in);
-    fio.read((char*)&f,sizeof(f));
-    filef.open("temp.txt",ios::out);
+void flight::delete_flight() {
     int pl_no;
-    char option1;
     char option;
-    char found='n';
-    cout<<"WHETHER YOU WANNA DELETE ANYMORE DETAIL?[if yes enter y]"<<endl;
-    cin>>option;
-    while(option=='y')
-    {
-        cout<<"ENTER THE PLANE NUMBER WHOSE DETAILS ARE TO BE DELETED"<<endl;
-        cin>>pl_no;
-        while(!fio.eof())
-        {
-            if(f.fl_no==pl_no)
-            {
-                found = 'f';
-                f.get_flight_info();
-                cout<<">>>>>>>Are you sure to delete this record?[if yes enter y,if not enter n]<<<<<<<"<<endl;
-                cin>>option1;
-                if(option1=='n')
-                {
-                    filef.write((char*)&f,sizeof(f));
-                }
-                else
-                {
-                    cout<<"***********//YOUR RECORD SUCCESSFULLY DELETED//*********"<<endl;
-                }
+    
+    do {
+        cout << "WHETHER YOU WANNA DELETE ANYMORE DETAIL?[if yes enter y]" << endl;
+        cin >> option;
+
+        if (option == 'y') {
+            cout << "ENTER THE PLANE NUMBER WHOSE DETAILS ARE TO BE DELETED" << endl;
+            cin >> pl_no;
+
+            char found = findAndDeleteFlight(pl_no);
+
+            if (found == 'n') {
+                cout << "FLIGHT RECORD NOT FOUND" << endl;
             }
-            else
-            {
-                filef.write((char*)&f,sizeof(f));
+        }
+    } while (option == 'y');
+}
+
+char flight::findAndDeleteFlight(int pl_no) {
+    char found = 'n';
+    flight f;
+    ifstream fio("plane.txt");
+    ofstream filef("temp.txt", ios::out);
+
+    fio.read((char*)&f, sizeof(f));
+    
+    while (!fio.eof()) {
+        if (f.fl_no == pl_no) {
+            found = 'f';
+            f.get_flight_info();
+            cout << ">>>>>>Are you sure to delete this record?[if yes enter y, if not enter n]<<<<<<" << endl;
+            char option1;
+            cin >> option1;
+            
+            if (option1 == 'n') {
+                filef.write((char*)&f, sizeof(f));
+            } else {
+                cout << "***********//YOUR RECORD SUCCESSFULLY DELETED//*********" << endl;
             }
-            fio.read((char*)&f,sizeof(f));
+        } else {
+            filef.write((char*)&f, sizeof(f));
         }
-        if(found=='n')
-        {
-            cout<<"FLIGHT RECORD NOT FOUND "<<endl;
-        }
-        fio.close();
-        filef.close();
-        remove("plane.txt");
-        rename("temp.txt","plane.txt");
-        cout<<"WHETHER YOU WANNA DELETE ANYMORE DETAIL?[if yes enter y]"<<endl;
-        cin>>option;
+        
+        fio.read((char*)&f, sizeof(f));
     }
 
+    fio.close();
+    filef.close();
+    remove("plane.txt");
+    rename("temp.txt", "plane.txt");
+
+    return found;
 }
+// void flight::delete_flight()
+// {
+//     flight f;
+//     ifstream fio;
+//     ofstream filef;
+//     fio.open("plane.txt",ios::in);
+//     fio.read((char*)&f,sizeof(f));
+//     filef.open("temp.txt",ios::out);
+//     int pl_no;
+//     char option1;
+//     char option;
+//     char found='n';
+//     cout<<"WHETHER YOU WANNA DELETE ANYMORE DETAIL?[if yes enter y]"<<endl;
+//     cin>>option;
+//     while(option=='y')
+//     {
+//         cout<<"ENTER THE PLANE NUMBER WHOSE DETAILS ARE TO BE DELETED"<<endl;
+//         cin>>pl_no;
+//         while(!fio.eof())
+//         {
+//             if(f.fl_no==pl_no)
+//             {
+//                 found = 'f';
+//                 f.get_flight_info();
+//                 cout<<">>>>>>>Are you sure to delete this record?[if yes enter y,if not enter n]<<<<<<<"<<endl;
+//                 cin>>option1;
+//                 if(option1=='n')
+//                 {
+//                     filef.write((char*)&f,sizeof(f));
+//                 }
+//                 else
+//                 {
+//                     cout<<"***********//YOUR RECORD SUCCESSFULLY DELETED//*********"<<endl;
+//                 }
+//             }
+//             else
+//             {
+//                 filef.write((char*)&f,sizeof(f));
+//             }
+//             fio.read((char*)&f,sizeof(f));
+//         }
+//         if(found=='n')
+//         {
+//             cout<<"FLIGHT RECORD NOT FOUND "<<endl;
+//         }
+//         fio.close();
+//         filef.close();
+//         remove("plane.txt");
+//         rename("temp.txt","plane.txt");
+//         cout<<"WHETHER YOU WANNA DELETE ANYMORE DETAIL?[if yes enter y]"<<endl;
+//         cin>>option;
+//     }
+
+// }
 void flight::display_flight()
 {
     ifstream fo;
