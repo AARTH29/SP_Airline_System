@@ -24,7 +24,7 @@ class flight
         void full_detail();
         void mod_flight();
         void depart(int flno);
-        void choose_seat(int flno,char type[]);
+        void choose_seat(int flno,string type);
 };
 #endif
 
