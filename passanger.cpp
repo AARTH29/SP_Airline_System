@@ -178,7 +178,7 @@ void passanger::display()
     }
     fl.close();
 }
-int passanger::check(int num,char name[10])
+int passanger::check(int num,string name)
 {
                     passanger pa;
                     ifstream us;
@@ -198,7 +198,7 @@ int passanger::check(int num,char name[10])
                     }
                     us.close();
 }
-void passanger::pass(int flno,char dep[10],char fltype[10])
+void passanger::pass(int flno,string dep,string fltype)
 {
     int k=0;
     passanger p3;
