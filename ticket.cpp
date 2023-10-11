@@ -20,7 +20,7 @@ void ticket::display_ticket()
     cout<<"DESTINATION:"<<destin_place<<endl;
     cout<<"RESERVATION NUMBER:"<<res_no<<endl;
 }
-void ticket::get_ticket(int num,char name[10])
+void ticket::get_ticket(int num,string name)
 {
     ticket t;
     ifstream st;
@@ -74,7 +74,8 @@ void ticket::del_res(int c)
     resn.open("ticket.txt",ios::in);
     file.open("temp.txt",ios::out);
     resn.read((char*)&t,sizeof(t));
-    char found='n',option='y';
+    char found='n';
+    char option='y';
     if(!resn)
         cout<<"FILE NOT FOUND"<<endl;
     while(option=='y')
