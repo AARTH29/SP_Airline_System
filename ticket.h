@@ -6,7 +6,8 @@ class ticket
 {
     private:
     int res_no;
-    char board_place[50],destin_place[50];
+    string board_place;
+    string destin_place;
     passanger p1;
 public:
     void set_ticket();
