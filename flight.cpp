@@ -191,6 +191,10 @@ void flight::display_flight()
     }
     fo.close();
 }
+void flight::displayOptions() {
+    cout << "WHICH DATA OF THE FLIGHT YOU WANNA CHANGE" << endl;
+    cout << "1]FLIGHT NUMBER\n 2]AIRLINE NAME\n 3]START OF\n 4]DESTINATION\n 5]DEPART TIME\n 6]E_SEAT_NO \n 7]B_SEAT_NO" << endl;
+}
 void flight::mod_flight()
 {
     fstream file2;
@@ -212,8 +216,7 @@ void flight::mod_flight()
             int n;
             while(choice=='y')
             {
-                cout<<"WHICH DATA OF THE FLIGHT YOU WANNA CHANGE"<<endl;
-                cout<<"1]FLIGHT NUMBER\n 2]AIRLINE NAME\n 3]START OF\n 4]DESTINATION\n 5]DEPART TIME\n6]E_SEAT_NO \n7]B_SEAT_NO"<<endl;
+                displayOptions();
                 cin>>n;
                 switch(n){
                     case 1:{
