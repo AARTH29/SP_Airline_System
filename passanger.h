@@ -4,7 +4,7 @@
 #include"flight.h"
 class passanger
 {
-protected:
+private:
     flight f;
     string pname;
     string surname;
