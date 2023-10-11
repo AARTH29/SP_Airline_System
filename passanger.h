@@ -23,8 +23,8 @@ public:
     void book_flight();
     void modify();
     void display();
-    int check(int num,char name[]);
-    void pass(int flno,char dep[10],char fltype[10]);
+    int check(int num,string name);
+    void pass(int flno,string dep,string fltype);
 };
 #endif
 
